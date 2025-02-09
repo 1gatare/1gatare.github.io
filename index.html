@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prison Fellowship Rwanda</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a227eb0;
+            --secondary-color: rgb(105, 10, 3);
+            --accent-color: #ffc107;
+        }
+
+        * {
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+    .navbar {
+    background:  linear-gradient(185deg, var(--primary-color), var(--secondary-color));
+    backdrop-filter: blur(1px);
+    transition: all 0.3s ease;
+}
+
+.navbar .logo {
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.navbar-brand span {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    position: relative;
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #ffc107;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.btn-warning {
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+        .carousel-item {
+            height: 100vh;
+            min-height: 500px;
+            background: no-repeat center center scroll;
+            background-size: cover;
+            position: relative;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+        }
+
+        .carousel-caption {
+            z-index: 10;
+            text-align: center;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .carousel-item.active .carousel-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mission-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: #333;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .mission-card {
+            background: #f8f9fa;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .mission-icon {
+            color: #2c5282;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .mission-title {
+            color: #2d3748;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .mission-description {
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .icon-box {
+            transition: transform 0.4s ease;
+        }
+
+        .mission-card:hover .icon-box {
+            transform: rotate(360deg);
+        }
+        .contact-section {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.contact-form,
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover,
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #ff1707;
+    box-shadow: 0 0 4px rgba(255, 23, 7, 0.4);
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #ff1707;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e31506;
+    transform: translateY(-3px);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.info-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    color: #ff1707;
+    font-size: 1.5rem;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.info-text {
+    color: #666;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff1707;
+    transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #ff1707;
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.9); }
+            100% { transform: scale(1.1); }
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 14px rgba(0,0,0,0.25);
+        }
+        .impact-stats {
+            background-color: #f8f9fa;
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .main-title {
+            color: #0a0a00;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards 0.2s;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ff1707;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards 0.4s;
+        }
+
+        .cta-button:hover {
+            background-color: #e31506;
+            transform: translateY(-2px);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            color: #0a0a00;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-number {
+            animation: countUp 2s ease-out forwards;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+.footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 2rem 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-text {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .registration-text {
+            color: #a3a3a3;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .divider {
+            width: 64px;
+            height: 1px;
+            background-color: #404040;
+            margin: 1rem auto;
+        }
+        
+        .copyright {
+            color: #a3a3a3;
+            font-size: 0.9rem;
+        }
+        .news-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #ff1707;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .news-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: #ff1707;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #cc1306;
+        }
+
+        .read-more svg {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover svg {
+            transform: translateX(5px);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-button:hover, .page-button.active {
+            background: #ff1707;
+            color: white;
+            border-color: #ff1707;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        .partners-section {
+            padding: 5rem 0;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #ff1707;
+        }
+
+        .logo-carousel {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 4rem;
+            padding: 2rem 0;
+        }
+
+        .logo-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            flex: 0 0 200px;
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-item:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-200px * 6 - 4rem * 6));
+            }
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+            padding: 1rem 0;
+            background: linear-gradient(90deg, 
+                white 0%, 
+                rgba(255,255,255,0) 2%, 
+                rgba(255,255,255,0) 98%, 
+                white 100%
+            );
+        }
+
+        /* Create two rows with different speeds */
+        .logo-row {
+            margin-bottom: 2rem;
+        }
+
+        .logo-row:nth-child(2) .logo-carousel {
+            animation-direction: reverse;
+            animation-duration: 25s;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .logo-item {
+                flex: 0 0 150px;
+                height: 75px;
+            }
+        }
+
+        .programs-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: #333;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .program-icon {
+            color: #2c5282;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .program-title {
+            color: #2d3748;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .program-description {
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .learn-more {
+            color: #2c5282;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .learn-more:hover {
+            color: #1a365d;
+        }
+        .modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-body h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.modal-body ul {
+    padding-left: 1.2rem;
+}
+
+.modal-body li {
+    margin-bottom: 0.8rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.modal-dialog-scrollable .modal-content {
+    max-height: 85vh;
+}
+
+.btn-close {
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="lg.png" alt="PF Rwanda Logo" height="40" class="me-3 logo">
+                <span class="fw-bold"></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel Section -->
+    <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('1.jpg')">
+                <div class="carousel-caption">
+                    <h1>Staff</h1>
+                    <p>Transforming lives, restoring hope, and building communities through compassion and support.</p>
+                    <a href="#donate" class="btn btn-primary btn-lg">Our Staff</a>
+                </div>
+            </div>
+           <div class="carousel-item" style="background-image: url('3.jpg')">
+                <div class="carousel-caption">
+                    <h1>Peacebuilding and psychosocial Support</h1>
+                    <p>Peace building and psychosocial support is one of the most impacting initiatives that Prison Fellowship Rwanda has introduced since its inception.</p>
+                    <a href="#programs" class="btn btn-primary btn-lg">Our Programs</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('Slide2.png')">
+                <div class="carousel-caption">
+                    <h1>Restorative Justice</h1>
+                    <p>Prison Fellowship Rwanda facilitates restorative justice process among offenders and victims whereby we approach offenders and victims to find solutions to damages caused.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Get Involved</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('11.png')">
+                <div class="carousel-caption">
+                    <h1>Human Right Promotion & Legal Aid</h1>
+                    <p>Community-Based Protection, Legal assistance & Community based Sociotherapy to refugees and asylum seekers.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Get Involved</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('slide4.jpg')">
+                <div class="carousel-caption">
+                    <h1>Spiritual Resilience</h1>
+                    <p>Community-Based Protection, Legal assistance & Community based Sociotherapy to refugees and asylum seekers.</p>
+                    <a href="#conta" class="btn btn-primary btn-lg">Get Involved</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <section class="impact-stats">
+        <div class="container">
+            <div class="header-section">
+                <h2 class="main-title">We Ensure Outcome-Focused Actions</h2>
+                <p class="subtitle">Our drive is to make a sustainable impact that lasts through generations; for that to happen our society needs to heal and be cohesive for progress to be realized.</p>
+                <a href="#programs" class="cta-button">
+                    Our Work 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h2 class="stat-number" data-target="30">0</h2>
+                    <p class="stat-label">Districts of Rwanda Served</p>
+                </div>
+                <div class="stat-card">
+                    <h2 class="stat-number" data-target="683">0</h2>
+                    <p class="stat-label">Houses Built</p>
+                </div>
+                <div class="stat-card">
+                    <h2 class="stat-number" data-target="9">0</h2>
+                    <p class="stat-label">Prisons Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe stats container
+        observer.observe(document.querySelector('.stats-container'));
+
+        function animateNumbers() {
+            document.querySelectorAll('.stat-number').forEach(number => {
+                const target = parseInt(number.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const steps = 20;
+                const increment = target / steps;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        number.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        number.textContent = Math.floor(current);
+                    }
+                }, duration / steps);
+                
+                number.classList.add('animate-number');
+            });
+        }
+    </script>
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission</h2>
+            </div>
+            
+            <div class="row">
+                <!-- Restoration -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="mission-card text-center">
+                        <div class="mission-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="mission-title">Restoration</h3>
+                        <p class="mission-description">
+                            Supporting the restoration and rehabilitation of prisoners and their families through comprehensive programs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="mission-card text-center">
+                        <div class="mission-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="mission-title">Community</h3>
+                        <p class="mission-description">
+                            Building stronger communities through reconciliation and support networks for affected families.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- International Network -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="mission-card text-center">
+                        <div class="mission-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="mission-title">International Network</h3>
+                        <p class="mission-description">
+                            Part of a global movement working towards justice reform and prisoner rehabilitation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+            </div>
+            
+            <div class="row">
+                <!-- Peacebuilding and Psychosocial Support -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="program-title">Peacebuilding and Psychosocial Support</h3>
+                        <p class="program-description">
+                            Peace building and psychosocial support is one of the most impacting initiatives that Prison Fellowship Rwanda has introduced since its inception.  
+                        </p>
+                        <a href="#" class="learn-more" data-bs-toggle="modal" data-bs-target="#peaceBuildingModal">Learn More →</a>
+                    </div>
+                </div>
+    
+                <!-- Restorative Justice -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="program-title">Restorative Justice</h3>
+                        <p class="program-description">
+                            Implementing restorative justice practices that bring together offenders, victims, and communities to promote healing, accountability, and reconciliation.
+                        </p>
+                        <a href="#" class="learn-more" data-bs-toggle="modal" data-bs-target="#restorativeJusticeModal">Learn More →</a>
+                    </div>
+                </div>
+    
+                <!-- Human Rights Promotion & Legal Aid -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3 class="program-title">Human Rights Promotion & Legal Aid</h3>
+                        <p class="program-description">
+                            Providing legal assistance and promoting human rights awareness to ensure justice and dignity for all individuals affected by the justice system.
+                        </p>
+                        <a href="#" class="learn-more" data-bs-toggle="modal" data-bs-target="#humanRightsModal">Learn More →</a>
+                    </div>
+                </div>
+    
+                <!-- Spiritual Resilience -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-pray"></i>
+                        </div>
+                        <h3 class="program-title">Spiritual Resilience</h3>
+                        <p class="program-description">
+                            Supporting spiritual growth and resilience through faith-based programs that provide hope, guidance, and personal transformation.
+                        </p>
+                        <a href="#" class="learn-more" data-bs-toggle="modal" data-bs-target="#spiritualModal">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modals -->
+        <!-- Peacebuilding Modal -->
+        <div class="modal fade" id="peaceBuildingModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Peacebuilding and Psychosocial Support</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="mb-3">Overview</h6>
+                        <p>Peace building and psychosocial support is one of the most impacting initiatives that Prison Fellowship Rwanda has introduced since its inception.  Community-based initiatives related to mental health and social cohesion at grassroots level are implemented in communities and in prisons to resolve conflicts, mitigate crimes, promote practical reconciliation, social cohesion and to contribute to the efforts towards sustainable peace in Rwanda. PFR is implementing following projects under Peacebuilding and psychosocial support.</p>
+                        
+                        <h6 class="mb-3 mt-4">1.Societal Healing Program</h6>
+                        <img src="11.png" alt="Societal Healing Program" class="mb-3" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        
+                        <p>In partnership with the Rwandan Government’s Ministry of National Unity and Civic Engagement (MINUBUMWE), Interpeace, Haguruka, Dignity in Detention (DIDE), and the Embassy of Sweden as a donor, Prison Fellowship Rwanda (PFR) is implementing the program Reinforcing Community Capacity for Social Cohesion and Reconciliation through Societal Trauma Healing' in five districts: Nyagatare, Ngoma, Musanze, Nyabihu, and Nyamagabe.
+                            The societal healing program adopts a comprehensive and distinctive approach, providing mental health treatments, improving social cohesion, and developing long-term livelihoods for the intended beneficiaries. These include Genocide survivors, Genocide perpetrators, ex-combatants, and returnees from 1959 to 1994 (current and former/released offenders), in addition to the families of these individuals, youth, and local leaders. Other planned participants are community-based groups and entities involved in mental health, social cohesion, and joint economic development initiatives at the community level.
+                            The programme provides safe spaces for dialogue, healing, and capacity strengthening of existing formal mental health structures and local societal healing practitioners to strengthen a comprehensive and community-based mental health and psychosocial support system.
+                            
+                            Our program aims to contribute to the consolidation of a peaceful, resilient, and inclusive Rwandan society, enabling it to overcome the wounds of the past, peacefully manage conflicts and diversity, collectively and inclusively strengthen livelihood resilience, and empower citizens to influence policies responsive to their priorities. It is implemented through three axes: mental health, social cohesion, and sustainable collaborative livelihoods. Gender, climate resilience, and conflict sensitivity aspects are also integrated as cross-cutting issues across the three axes. 
+                            </p>    
+                            <img src="12.jpg" alt="Societal Healing Program" class="mb-3" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        
+    
+                        <h6 class="mb-3 mt-4">2.Advancing Human Right in Rwanda</h6>
+                        <img src="13.png" alt="Societal Healing Program" class="mb-3" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        
+                        <p>Prison Fellowship Rwanda, in partnership with the Rwanda Bridge to Justice (RBJ), Initiatives for Peace and Human Rights (IPeace), and International Bridge to Justice (IBJ), is implementing a project titled "Advancing Human Rights in Rwanda" with the goal of expanding holistic legal and rehabilitative protection to communities at risk of torture, arbitrary detention, and other forms of abuse. The role of Prison Fellowship Rwanda in this project is offering psychosocial support to inmates.</p>
+                        <img src="14.jpg" alt="Societal Healing Program" class="mb-3" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Restorative Justice Modal -->
+        <div class="modal fade" id="restorativeJusticeModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Restorative Justice</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="mb-3">Overview</h6>
+                        <p>Our Restorative Justice program represents a transformative approach to justice that emphasizes healing, accountability, and the restoration of relationships damaged by crime and conflict.</p>
+                        
+                        <h6 class="mb-3 mt-4">Program Elements</h6>
+                        <ul>
+                            <li><strong>Victim-Offender Dialogue:</strong> Facilitated meetings between victims and offenders to promote understanding and healing.</li>
+                            <li><strong>Community Conferences:</strong> Bringing together all affected parties to address harm and determine appropriate restitution.</li>
+                            <li><strong>Reintegration Support:</strong> Programs helping offenders successfully return to their communities.</li>
+                            <li><strong>Reconciliation Workshops:</strong> Group sessions focusing on forgiveness and relationship rebuilding.</li>
+                        </ul>
+    
+                        <h6 class="mb-3 mt-4">Outcomes</h6>
+                        <p>Our restorative justice initiatives have shown significant success in reducing recidivism, increasing victim satisfaction with the justice process, and strengthening community bonds.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Human Rights Modal -->
+        <div class="modal fade" id="humanRightsModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Human Rights Promotion & Legal Aid</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="mb-3">Overview</h6>
+                        <p>Our Human Rights Promotion & Legal Aid program ensures access to justice and protects the fundamental rights of all individuals, particularly those affected by the criminal justice system.</p>
+                        
+                        <h6 class="mb-3 mt-4">Services Provided</h6>
+                        <ul>
+                            <li><strong>Legal Representation:</strong> Pro bono legal services for those who cannot afford representation.</li>
+                            <li><strong>Rights Education:</strong> Workshops and training sessions on human rights and legal literacy.</li>
+                            <li><strong>Advocacy:</strong> Working with authorities to improve conditions and protect rights.</li>
+                            <li><strong>Case Management:</strong> Comprehensive support throughout legal proceedings.</li>
+                        </ul>
+    
+                        <h6 class="mb-3 mt-4">Success Stories</h6>
+                        <p>Through this program, we have successfully advocated for improved prison conditions, secured fair trials for numerous individuals, and helped implement policies protecting prisoners' rights.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Spiritual Resilience Modal -->
+        <div class="modal fade" id="spiritualModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Spiritual Resilience</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="mb-3">Overview</h6>
+                        <p>Our Spiritual Resilience program focuses on nurturing the spiritual well-being of individuals, helping them find hope, purpose, and inner strength through faith-based support.</p>
+                        
+                        <h6 class="mb-3 mt-4">Program Activities</h6>
+                        <ul>
+                            <li><strong>Spiritual Counseling:</strong> One-on-one pastoral care and guidance.</li>
+                            <li><strong>Prayer Groups:</strong> Regular gatherings for spiritual support and community building.</li>
+                            <li><strong>Faith Studies:</strong> Educational programs exploring spiritual growth and understanding.</li>
+                            <li><strong>Worship Services:</strong> Regular opportunities for communal worship and reflection.</li>
+                        </ul>
+    
+                        <h6 class="mb-3 mt-4">Transformation Stories</h6>
+                        <p>Many participants have experienced profound personal transformation through this program, finding renewed purpose, hope, and strength to overcome life's challenges.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <p class="section-subtitle">Stay updated with our latest activities, events, and impact stories from across Rwanda.</p>
+            
+            <div class="news-grid">
+                <!-- News Item 1 -->
+                <article class="news-card">
+                    <img src="4.jpg" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <p class="news-date">February 6, 2025</p>
+                        <h3 class="news-title">New Rehabilitation Program Launched in Kigali Prison</h3>
+                        <p class="news-excerpt">Prison Fellowship Rwanda introduces an innovative rehabilitation program aimed at providing vocational training and psychological support to inmates...</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- News Item 2 -->
+                <article class="news-card">
+                    <img src="5.jpg" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <p class="news-date">February 4, 2025</p>
+                        <h3 class="news-title">Community Housing Project Reaches Milestone</h3>
+                        <p class="news-excerpt">Our housing initiative celebrates the completion of its 683rd house, providing safe and dignified homes to families across Rwanda...</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- News Item 3 -->
+                <article class="news-card">
+                    <img src="6.jpg" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <p class="news-date">February 1, 2025</p>
+                        <h3 class="news-title">Annual Reconciliation Workshop Success</h3>
+                        <p class="news-excerpt">Over 200 participants attended our annual reconciliation workshop, fostering healing and understanding in communities...</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-button active">1</button>
+                <button class="page-button">2</button>
+                <button class="page-button">3</button>
+                <button class="page-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            
+            <!-- First Row -->
+            <div class="logo-row">
+                <div class="carousel-container">
+                    <div class="logo-carousel">
+                        <!-- Repeat logos for seamless scrolling -->
+                        <div class="logo-item">
+                            <img src="a.jpg" alt="Prison Fellowship International">
+                        </div>
+                        <div class="logo-item">
+                            <img src="b.jpg" alt="Ministry of Justice">
+                        </div>
+                        <div class="logo-item">
+                            <img src="c.jpg" alt="Rwanda Correctional Service">
+                        </div>
+                        <div class="logo-item">
+                            <img src="d.jpg" alt="Unity and Reconciliation Commission">
+                        </div>
+                        <div class="logo-item">
+                            <img src="e.jpg" alt="Partner 5">
+                        </div>
+                        <div class="logo-item">
+                            <img src="f.png" alt="Partner 6">
+                        </div>
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="logo-item">
+                            <img src="g.jpg" alt="Prison Fellowship International">
+                        </div>
+                        <div class="logo-item">
+                            <img src="h.jpg" alt="Ministry of Justice">
+                        </div>
+                        <div class="logo-item">
+                            <img src="c.jpg" alt="Rwanda Correctional Service">
+                        </div>
+                        <div class="logo-item">
+                            <img src="e.jpg" alt="Unity and Reconciliation Commission">
+                        </div>
+                        <div class="logo-item">
+                            <img src="b.jpg" alt="Partner 5">
+                        </div>
+                        <div class="logo-item">
+                            <img src="a.jpg" alt="Partner 6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row (Reverse Direction) -->
+            <div class="logo-row">
+                <div class="carousel-container">
+                    <div class="logo-carousel">
+                        <!-- Same structure as first row but with different logos -->
+                        <div class="logo-item">
+                            <img src="a.jpg" alt="Partner 7">
+                        </div>
+                        <div class="logo-item">
+                            <img src="b.jpg" alt="Partner 8">
+                        </div>
+                        <div class="logo-item">
+                            <img src="c.jpg" alt="Partner 9">
+                        </div>
+                        <div class="logo-item">
+                            <img src="d.jpg" alt="Partner 10">
+                        </div>
+                        <div class="logo-item">
+                            <img src="e.jpg" alt="Partner 11">
+                        </div>
+                        <div class="logo-item">
+                            <img src="f.png" alt="Partner 12">
+                        </div>
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="logo-item">
+                            <img src="g.jpg" alt="Partner 7">
+                        </div>
+                        <div class="logo-item">
+                            <img src="h.jpg" alt="Partner 8">
+                        </div>
+                        <div class="logo-item">
+                            <img src="a.jpg" alt="Partner 9">
+                        </div>
+                        <div class="logo-item">
+                            <img src="b.jpg" alt="Partner 10">
+                        </div>
+                        <div class="logo-item">
+                            <img src="e.jpg" alt="Partner 11">
+                        </div>
+                        <div class="logo-item">
+                            <img src="d.jpg" alt="Partner 12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Contact Section -->
+ <section class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-label">Phone</h3>
+                        <p class="info-text">+250 783 459 293</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-label">Email</h3>
+                        <p class="info-text">info@pfrwanda.org</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-label">Location</h3>
+                        <p class="info-text">Kigali, Rwanda</p>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <!-- Facebook -->
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    Prison Fellowship Rwanda is an affiliate member of Prison Fellowship International
+                </p>
+                <p class="registration-text">
+                    Officially Registered in Rwanda by the ministerial order No 037/17
+                </p>
+                <div class="divider"></div>
+                <p class="copyright">
+                    &copy; 2025 Prison Fellowship Rwanda. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize carousel with custom settings
+        var myCarousel = new bootstrap.Carousel(document.getElementById('homeCarousel'), {
+            interval: 5000, // Change slides every 5 seconds
+            ride: 'carousel',
+            pause: 'hover'
+        });
+    </script>
+</body>
+</html>
